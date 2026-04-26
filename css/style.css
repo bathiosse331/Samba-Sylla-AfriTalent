@@ -16,3 +16,12 @@ nav{
 h1{
     background-color: wheat;
 }
+
+.car{
+    background-color: blue;
+}
+
+.card:hover{
+    box-shadow: 10px 5px 10px black;
+    background-color: brown;
+}
