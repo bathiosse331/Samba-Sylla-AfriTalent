@@ -1,6 +1,26 @@
+.navbar{
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    background-color: black;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.navbar.scrolled {
+    background-color: white; /* Devient blanche */
+    color: black;
+    /* Ajoute une ombre */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Réduit la taille */
+    padding: 25px 50px; 
+}
+.scrolled a{
+    color: black;
+}
+
 body{
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlcjbbJ0fnbIEQjrINNJPdbpeucf7Se0foew&s");
-    /* background: linear-gradient(to top,rgba(0, 0, 0, 0.351),rgba(0, 0, 0, 0.412)); */
+    background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlcjbbJ0fnbIEQjrINNJPdbpeucf7Se0foew&s");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -10,7 +30,7 @@ body{
 
 nav{
     position: sticky;
-    top: 0px;
+    top: 1em;
 }
 
 h1{
@@ -55,6 +75,36 @@ h1{
 @media screen and(min-width: 1200px){
     .card{
         width: 100%;
-        
+
     }
 }
+
+body {
+      background-color: white;
+      color: black;
+      transition: background-color 0.3s, color 0.3s;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+/* la classe dark est utilisée dynamiquement par le js pour pouvoir etre
+utilisee: .classlist("dark") */
+    body.dark {
+      background-color: black;
+      color: white;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+       cursor: pointer;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+    }
+
+    body.dark button {
+      background-color: #FF9800;
+      color: black;
+    }
