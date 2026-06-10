@@ -108,3 +108,23 @@ utilisee: .classlist("dark") */
       background-color: #FF9800;
       color: black;
     }
+
+
+.fade-in {
+  opacity: 0;                /* invisible au départ */
+  transform: translateY(50px); /* décalé vers le bas */
+  transition: opacity 1.5s ease, transform 1.5s ease;
+  font-size: 24px;
+  text-align: center;
+  margin: 100px auto;
+  width: 80%;
+  /* background: #fff; */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.fade-in.visible {
+  opacity: 1;                /* devient visible */
+  transform: translateY(0);  /* remonte à sa position normale */
+}
