@@ -118,25 +118,6 @@ let observ = new IntersectionObserver((entri)=>{
 let targ = document.querySelector(".papa");
 observ.observe(targ);
 
-// animation fade-in
-// document.addEventListener("DOMContentLoaded", () => {
-//   const elements = document.querySelectorAll(".fade-in");
-
-//   const obser = new IntersectionObserver((entries) => {
-//     entries.forEach(entry => {
-//       if (entry.isIntersecting) {
-//         entry.target.classList.add("visible");
-//         // Optionnel : arrêter d’observer après apparition
-//         obser.unobserve(entry.target);
-//       }
-//     });
-//   }, {
-//     threshold: 0.2 // déclenche quand 20% de l’élément est visible
-//   });
-
-//   elements.forEach(el => obser.observe(el));
-// });
-
 
 
 
@@ -160,4 +141,49 @@ document.addEventListener("DOMContentLoaded", () => {
   elements.forEach(el => observer.observe(el));
 });
 
+// validation form
 
+  
+  
+
+
+
+const form = document.getElementById("form");
+form.addEventListener("submit",(e)=>{
+  e.preventDefault();
+  if(validerForm()){
+    const msgSuccess = document.getElementById("succesSms");
+    msgSuccess.classList.add("show")
+    msgSuccess.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    })
+  }
+})
+// le commentaire
+function validerMessage(){
+const commentaire = document.getElementById("commentaire");
+const textSms = commentaire.value.trim();
+if(!textSms.length < 20){
+  afficherErreur(commentaire,"message trop court");
+  return false
+}
+afficherValide(commentaire);
+return true;
+}
+
+
+// email
+function emailValide(email){
+// return/^[a-za-z0-9._%+-]+@[a-za-z0-9.-]+\.[a-za-Z]{2,}$/.test(email);
+}
+function validerEmail(){
+  const champEmail = document.getElementById("email");
+  if(!champEmail.value.trim()){
+    afficherErreur("champEmail","veuillez saisir votre adresse email");
+  return false
+  };
+  if(!emailValide.value.trim()){
+    afficherErreur(champEmail,"format invalide ")
+  }
+}
