@@ -41,6 +41,7 @@ window.addEventListener("scroll", () => {
     // Action du bouton : remonter en haut
     btnTop.addEventListener("click", () => {
       // window au lieu document car l'evenement conserne la fenetre du navigateur 
+      // scrollto est declenche lors du click pour remonter en haut
       window.scrollTo({
         top: 0,
         behavior: "smooth" // défilement fluide
@@ -72,7 +73,10 @@ let observer = new IntersectionObserver((entree)=>{
 });
 
 let target = document.querySelector(".parent");
-observer.observe(target);
+if(target){
+
+  observer.observe(target);
+}
 
 let observe = new IntersectionObserver((entries)=>{
   entries.forEach((entrie)=>{
@@ -94,7 +98,10 @@ let observe = new IntersectionObserver((entries)=>{
 });
 
 let targe = document.querySelector(".pere");
-observe.observe(targe);
+if(targe){
+
+  observe.observe(targe);
+}
 
 let observ = new IntersectionObserver((entri)=>{
   entri.forEach((entriee)=>{
@@ -116,7 +123,10 @@ let observ = new IntersectionObserver((entri)=>{
 });
 
 let targ = document.querySelector(".papa");
-observ.observe(targ);
+if(targ){
+
+  observ.observe(targ);
+}
 
 
 
@@ -143,40 +153,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // validation form
 
-  
-  
-
-
-
-const form = document.getElementById("form");
-form.addEventListener("submit",(e)=>{
-  e.preventDefault();
-  if(validerForm()){
-    const msgSuccess = document.getElementById("succesSms");
-    msgSuccess.classList.add("show")
-    msgSuccess.scrollIntoView({
-      behavior:"smooth",
-      block:"center"
-    })
-  }
-})
-// le commentaire
-function validerMessage(){
-const commentaire = document.getElementById("commentaire");
-const textSms = commentaire.value.trim();
-if(!textSms.length < 20){
-  afficherErreur(commentaire,"message trop court");
-  return false
-}
-afficherValide(commentaire);
-return true;
-}
-
-
 // email
-function emailValide(email){
-// return/^[a-za-z0-9._%+-]+@[a-za-z0-9.-]+\.[a-za-Z]{2,}$/.test(email);
-}
+// function emailValide(email){
+// // return/^[a-za-z0-9._%+-]+@[a-za-z0-9.-]+\.[a-za-Z]{2,}$/.test(email);
+// }
 function validerEmail(){
   const champEmail = document.getElementById("email");
   if(!champEmail.value.trim()){
@@ -187,3 +167,78 @@ function validerEmail(){
     afficherErreur(champEmail,"format invalide ")
   }
 }
+const from = document.getElementById("form")
+if (from){
+  from.addEventListener("submit",(e) =>{
+    const msg = document.getElementById("success");
+    msg.classList.add("show");
+  });
+  setTimeout(()=>{
+    from.reset();
+    msg.classList.remove("show");
+  }, 3000);
+}
+
+
+let btne = document.querySelectorAll(".pre")
+let carte = document.querySelectorAll(".pro")
+btne.forEach((bt) =>{
+  bt.addEventListener("click",function(){
+    let filtre = this.getAttribute("data-categorie")
+    carte.forEach((cart) =>{
+      let cat = cart.getAttribute("data-target")
+      if (filtre === "all"){
+        cart.style.display = "";
+      }else if(filtre === cat){
+        cart.style.display = "";
+      }else{
+        cart.style.display = "none";
+      }
+    });
+  });
+});
+
+
+// // email
+// function emailValide(email) {
+//     // Décommenté et corrigé : valide le format texte de l'email
+//     return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+// }
+
+// function validereEmail() {
+//     const champEmail = document.getElementById("email");
+    
+//     // 1. Vérification si le champ est vide
+//     if (!champEmail.value.trim()) {
+//         afficherErreur("!champEmail", "veuillez saisir votre adresse email");
+//         return false;
+//     }
+    
+//     // 2. Vérification du format (on passe la valeur du champ à la fonction)
+//     if (!emailValide(champEmail.value.trim())) {
+//         afficherErreur("champEmail", "format invalide ");
+//         return false; // Ajouté pour bloquer si le format est incorrect
+//     }
+
+//     return true; // L'email est valide
+// }
+
+// const from = document.getElementById("form");
+// if (from) {
+//     from.addEventListener("submit", (e) => {
+//         // Empêche le rechargement de la page pour traiter le JS
+//         e.preventDefault(); 
+
+//         // On ne traite la suite que si l'email est valide
+//         if (validereEmail()) {
+//             const msg = document.getElementById("success");
+//             msg.classList.add("show");
+
+//             // Le setTimeout doit être ICI, à l'intérieur du submit
+//             setTimeout(() => {
+//                 from.reset();
+//                 msg.classList.remove("show");
+//             }, 3000);
+//         }
+//     });
+//   }

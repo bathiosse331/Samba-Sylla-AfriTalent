@@ -27,8 +27,8 @@ ___docs/
     |__Samba_Sylla_Presentation
 
 |___README.md
-
 |___.gitignore
+
 
 
 Objectif de la création du site
@@ -43,8 +43,10 @@ CSS
 JS
 BOOOTSTRAP
 
+Lien vers le site:  https://bathiosse331.github.io/Samba-Sylla-AfriTalent/
+
 Quelsques images du site
 
-[alt](images/Capture d'écran 2026-06-16 173727.png)
-[alt](images/Capture d'écran 2026-06-16 173914.png)
-[alt](images/Capture d'écran 2026-06-16 174048.png)
+![alt](./images/Capture%20d'écran%202026-06-16%20173727.png)
+![alt](./images/Capture%20d'écran%202026-06-16%20173914.png)
+![alt](./images/Capture%20d'écran%202026-06-16%20174048.png)

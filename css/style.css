@@ -128,3 +128,11 @@ utilisee: .classlist("dark") */
   opacity: 1;                /* devient visible */
   transform: translateY(0);  /* remonte à sa position normale */
 }
+
+#success{
+    display: none;
+}
+
+#success .show{
+    display: flex;
+}
